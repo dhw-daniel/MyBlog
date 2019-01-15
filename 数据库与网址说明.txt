@@ -1,0 +1,2 @@
+数据库名称 vaethink   root  root
+后台登录网址  域名/index.php/admin/publicer/login.html
