@@ -15,6 +15,7 @@ class Uploader
     private $config; //配置信息
     private $oriName; //原始文件名
     private $fileName; //新文件名
+	private $filehost; //文件的域名
     private $fullName; //完整文件名,即从当前配置目录开始的URL
     private $filePath; //完整文件名,即从当前配置目录开始的URL
     private $fileSize; //文件大小
@@ -359,6 +360,7 @@ class Uploader
      */
     public function getFileInfo()
     {
+		$this->filehost = $this->filehost?$this->filehost:$_SERVER['REQUEST_URI'];
         return array(
             "state" => $this->stateInfo,
             "url" => $this->fullName,
