@@ -13,15 +13,17 @@ use vae\controller\AdminCheckLogin;
 
 class ApiController extends AdminCheckLogin
 {
+	private $filehost; //文件的域名
     //上传文件
     public function upload()
     {
+		$this->filehost = $this->filehost?$this->filehost:'http://'.$_SERVER['SERVER_NAME'];
         $param = vae_get_param();
         $module = isset($param['module']) ? $param['module'] : 'admin';
         $use = isset($param['use']) ? $param['use'] : 'thumb';
         $res = vae_upload($module,$use);
         if($res['code'] == 1){
-            return vae_assign(1,'',$res['data']);
+            return vae_assign(1,'',$this->filehost.$res['data']);
         }
         return vae_assign(0,$res['msg']);
     }
