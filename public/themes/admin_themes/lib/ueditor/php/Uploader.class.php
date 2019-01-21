@@ -360,7 +360,7 @@ class Uploader
      */
     public function getFileInfo()
     {
-		$this->filehost = $this->filehost?$this->filehost:$_SERVER['REQUEST_URI'];
+		$this->filehost = $this->filehost?$this->filehost:'http://'$_SERVER['SERVER_NAME'];
         return array(
             "state" => $this->stateInfo,
             "url" => $this->filehost.$this->fullName,
