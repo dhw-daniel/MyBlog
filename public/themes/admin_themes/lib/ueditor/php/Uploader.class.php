@@ -363,7 +363,7 @@ class Uploader
 		$this->filehost = $this->filehost?$this->filehost:$_SERVER['REQUEST_URI'];
         return array(
             "state" => $this->stateInfo,
-            "url" => $this->fullName,
+            "url" => $this->filehost.$this->fullName,
             "title" => $this->fileName,
             "original" => $this->oriName,
             "type" => $this->fileType,
